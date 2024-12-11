@@ -1,10 +1,7 @@
 package com.wondrous.oauth_jwt.service;
 
 
-import com.wondrous.oauth_jwt.dto.GoogleResponse;
-import com.wondrous.oauth_jwt.dto.KaKaoResponse;
-import com.wondrous.oauth_jwt.dto.NaverResponse;
-import com.wondrous.oauth_jwt.dto.OAuth2Response;
+import com.wondrous.oauth_jwt.dto.*;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -23,13 +20,15 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
         OAuth2Response oAuth2Response = null;
 
-        if(registrationId == "naver") {
+        System.out.println("registrationID: " + registrationId);
+
+        if(registrationId.equals("naver")) {
             oAuth2Response = new NaverResponse(oAuth2User.getAttributes());
         }
-        else if (registrationId == "kakao") {
+        else if (registrationId.equals("kakao")) {
             oAuth2Response = new KaKaoResponse(oAuth2User.getAttributes());
         }
-        else if (registrationId == "google") {
+        else if (registrationId.equals("google")) {
             oAuth2Response = new GoogleResponse(oAuth2User.getAttributes());
         }
         else {
@@ -38,7 +37,13 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         }
         // 이후 작성 예정
 
-        return oAuth2User;
+        String role = "ROLE_USER";
+
+        /**
+         * 기본 반환 형태: return oAuth2User;
+         * OAuth2User형태로 반환해야 하지만 OAuth2User을 상속받은 CustomOAuth2User으로 반환
+         */
+        return new CustomOAuth2User(oAuth2Response, role);
     }
 }
 
