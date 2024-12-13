@@ -28,6 +28,7 @@ public class SecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable)
                 //유저 엔드 포인트를 customOAuth2UserService로 설정
                 .oauth2Login((oauth2) -> oauth2
+                        .loginPage("/login")
                         .userInfoEndpoint((userInfoEndpointConfig ->
                                 userInfoEndpointConfig.userService(customOAuth2UserService))))
 

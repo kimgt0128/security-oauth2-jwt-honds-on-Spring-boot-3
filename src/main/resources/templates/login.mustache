@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100 m-0">
+
+
+<div class="flex flex-col justify-center items-center h-screen p-4">
+
+    <h2 class="text-xl font-semibold text-gray-800 pb-8">소셜 로그인 하기</h2>
+    <a
+            href="/oauth2/authorization/naver"
+            class="flex items-center bg-[#03C75A] text-white text-lg font-bold  px-5 py-3 rounded-md no-underline cursor-pointer transition-colors duration-300 hover:bg-[#02993E] mb-4"
+    >
+        <img
+                src= "data:image/png;base64,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"
+                alt="Naver Logo"
+                class="h-6"
+        />
+
+        네이버 로그인
+    </a>
+
+    <a
+            href="/oauth2/authorization/kakao"
+            class="flex items-center bg-[#FEE500] text-[#000000] text-lg font-bold px-5 py-3 rounded-md no-underline cursor-pointer transition-colors duration-300 hover:bg-[#F5D100] mb-4"
+    >
+        <img
+                src= "https://mblogthumb-phinf.pstatic.net/MjAxODAyMDJfOTAg/MDAxNTE3NTAyODA4ODI0.cxuAkiwL2Dw5FUxUYWTwA2GUwlqpLzgRwjHirNDC6Cog.fTa3ixKaDFaD7DM6ctC0BodxnM_1DTdUsp3IzmOwsJkg.PNG.marketstory24/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1_%EB%A1%9C%EA%B3%A0_3.png?type=w800"
+                alt="Kakao Logo"
+                class="h-6"
+        />
+
+        <span class="text-[85%]">카카오 로그인</span>
+    </a>
+
+    <a
+            href="/oauth2/authorization/google"
+            class="flex items-center justify-center bg-[#4285F4] text-white text-lg font-semibold px-6 py-3 rounded-lg shadow-md transition-colors duration-300 hover:bg-[#357AE8] mb-4"
+    >
+        <img
+                src="data:image/png;base64,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"
+                alt="Google Logo"
+                class="h-6 mr-3"
+        />
+        구글 로그인
+    </a>
+
+</div>
+
+
+</body>
+</html>
